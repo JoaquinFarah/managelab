@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import { Button } from "@/components/ui/button";
 
 
@@ -9,7 +8,7 @@ export default function Home() {
   return (
     
     <div className=" px-20">
-      <Header/>
+      
       <h1>MANAGE LAB</h1>
       
       <p>
