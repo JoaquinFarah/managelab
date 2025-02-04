@@ -1,7 +1,8 @@
 "use client"
-// Header component with image and dropdown menus
+
 import React, { useState } from 'react';
 import './Header.css';
+
 
 const Header = () => {
   const [dropdown1, setDropdown1] = useState(false);

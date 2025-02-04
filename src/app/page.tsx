@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
       </p>
+      <Button>Click me</Button>
     </div>
   );
 }
