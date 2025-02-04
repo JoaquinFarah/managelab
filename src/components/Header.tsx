@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import './Header.css';
+import { Button } from "@/components/ui/button";
 
 
 const Header = () => {
@@ -19,12 +20,12 @@ const Header = () => {
       
       <nav className="nav-menu">
         <div className="dropdown">
-          <button 
-            className="dropdown-btn"
+          <Button variant="emerald"
+            className=""
             onClick={() => setDropdown1(!dropdown1)}
           >
             Dropdown 1
-          </button>
+          </Button>
           {dropdown1 && (
             <ul className="dropdown-content">
               <li>Option 1</li>
