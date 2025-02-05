@@ -1,5 +1,5 @@
 "use client"
-import { Calendar, ChevronDown, Home, Inbox, Settings, LogOut, Syringe, FlaskConical, Radiation } from "lucide-react"
+import { Calendar, ChevronDown, Home, Inbox, Settings, LogOut, Syringe, FlaskConical, Radiation, FolderCheck } from "lucide-react"
 
 import {
   Sidebar,
@@ -47,7 +47,7 @@ const patients = [
   {
     title: "Historia Clinica",
     url: "/pages/clinic",
-    icon: Home,
+    icon: FolderCheck,
   },
   {
     title: "Datos personales",
