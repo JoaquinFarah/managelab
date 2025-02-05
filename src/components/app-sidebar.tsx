@@ -1,5 +1,5 @@
 "use client"
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Calendar, ChevronDown, Home, Inbox, Search, Settings } from "lucide-react"
 
 import {
   Sidebar,
@@ -11,34 +11,56 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
 
-// Menu items.
-const items = [
+const config = [
   {
-    title: "Dashboard",
+    title: "Configuración",
     url: "/pages",
+    icon: Settings,
+  },
+  {
+    title: "Logout",
+    url: "/",
+    icon: Home,
+  },
+]
+const laboratory = [
+  {
+    title: "Tests de sangre",
+    url: "/pages/laboratory",
     icon: Home,
   },
   {
-    title: "Analisis",
-    url: "/pages/analyses",
+    title: "Test de orina",
+    url: "/pages/clinic",
+    icon: Home,
+  },
+  {
+    title: "Radiografias",
+    url: "/pages/clinic",
+    icon: Home,
+  },
+
+]
+const patients = [
+  {
+    title: "Historia Clinica",
+    url: "/pages/clinic",
+    icon: Home,
+  },
+  {
+    title: "Datos personales",
+    url: "/pages/data",
     icon: Inbox,
   },
   {
-    title: "Calendar",
+    title: "Turnos",
     url: "#",
     icon: Calendar,
   },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
+ 
 ]
 
 export function AppSidebar() {
@@ -46,24 +68,68 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>BioNTech</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
+          <SidebarGroupLabel>BioNTech</SidebarGroupLabel>          
+          
+          <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger>
+                Pacientes
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+            <CollapsibleContent>
+            <SidebarGroupContent>
+                <SidebarMenu>
+                  {patients.map((patients) => (
+                    <SidebarMenuItem key={patients.title}>
+                      <SidebarMenuButton asChild>
+                        <a href={patients.url}>
+                          <patients.icon />
+                          <span>{patients.title}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+              <SidebarGroupContent />
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
+
+        <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger>
+                Laboratorio
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+            <CollapsibleContent>
+            <SidebarGroupContent>
+                <SidebarMenu>
+                  {laboratory.map((laboratory) => (
+                    <SidebarMenuItem key={laboratory.title}>
+                      <SidebarMenuButton asChild>
+                        <a href={laboratory.url}>
+                          <laboratory.icon />
+                          <span>{laboratory.title}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+              <SidebarGroupContent />
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
+
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
+
   )
 }
 
