@@ -20,7 +20,7 @@ export default function Login() {
               src="/BioNTech-Logo.wine.svg"
               width={400}
               height={400}
-              alt="Instagram logo"
+              alt="logo"
             />
             <h1 className="mb-2 text-2xl">Sistema integral de pacientes</h1>
             <span className="text-gray-300">Hecho a medida de su clinica</span>

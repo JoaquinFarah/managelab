@@ -1,3 +1,4 @@
+"use client"
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 
 import {
@@ -14,13 +15,13 @@ import {
 // Menu items.
 const items = [
   {
-    title: "Home",
-    url: "#",
+    title: "Dashboard",
+    url: "/pages",
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "#",
+    title: "Analisis",
+    url: "/pages/analyses",
     icon: Inbox,
   },
   {
@@ -45,7 +46,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>BioNTech</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -65,3 +66,4 @@ export function AppSidebar() {
     </Sidebar>
   )
 }
+
