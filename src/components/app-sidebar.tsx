@@ -1,5 +1,5 @@
 "use client"
-import { Calendar, ChevronDown, Home, Inbox, Search, Settings } from "lucide-react"
+import { Calendar, ChevronDown, Home, Inbox, Settings, LogOut, Syringe, FlaskConical, Radiation } from "lucide-react"
 
 import {
   Sidebar,
@@ -11,7 +11,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
 
 const config = [
@@ -21,26 +20,26 @@ const config = [
     icon: Settings,
   },
   {
-    title: "Logout",
+    title: "Cerrar Sesión",
     url: "/",
-    icon: Home,
+    icon: LogOut,
   },
 ]
 const laboratory = [
   {
     title: "Tests de sangre",
     url: "/pages/laboratory",
-    icon: Home,
+    icon: Syringe,
   },
   {
     title: "Test de orina",
     url: "/pages/clinic",
-    icon: Home,
+    icon: FlaskConical,
   },
   {
     title: "Radiografias",
     url: "/pages/clinic",
-    icon: Home,
+    icon: Radiation,
   },
 
 ]
@@ -70,7 +69,7 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>BioNTech</SidebarGroupLabel>          
           
-          <Collapsible defaultOpen className="group/collapsible">
+          <Collapsible className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
@@ -98,7 +97,7 @@ export function AppSidebar() {
           </SidebarGroup>
         </Collapsible>
 
-        <Collapsible defaultOpen className="group/collapsible">
+        <Collapsible className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
@@ -126,10 +125,38 @@ export function AppSidebar() {
           </SidebarGroup>
         </Collapsible>
 
+        <Collapsible className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger>
+                Configuración
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+            <CollapsibleContent>
+            <SidebarGroupContent>
+                <SidebarMenu>
+                  {config.map((config) => (
+                    <SidebarMenuItem key={config.title}>
+                      <SidebarMenuButton asChild>
+                        <a href={config.url}>
+                          <config.icon />
+                          <span>{config.title}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+              <SidebarGroupContent />
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
+
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-
+    // defaultOpen por si quiero que se abra por defecto
   )
 }
 
