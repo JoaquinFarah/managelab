@@ -12,11 +12,12 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"
+import Link from "next/link"
 
 const config = [
   {
     title: "Configuración",
-    url: "/pages",
+    url: "/pages/setup",
     icon: Settings,
   },
   {
@@ -28,17 +29,17 @@ const config = [
 const laboratory = [
   {
     title: "Tests de sangre",
-    url: "/pages/laboratory",
+    url: "/pages/blood",
     icon: Syringe,
   },
   {
     title: "Test de orina",
-    url: "/pages/clinic",
+    url: "/pages/pee",
     icon: FlaskConical,
   },
   {
     title: "Radiografias",
-    url: "/pages/clinic",
+    url: "/pages/radio",
     icon: Radiation,
   },
 
@@ -46,17 +47,17 @@ const laboratory = [
 const patients = [
   {
     title: "Historia Clinica",
-    url: "/pages/clinic",
+    url: "/pages/clinical",
     icon: FolderCheck,
   },
   {
     title: "Datos personales",
-    url: "/pages/data",
+    url: "/pages/patient",
     icon: Inbox,
   },
   {
     title: "Turnos",
-    url: "#",
+    url: "/pages/appointments",
     icon: Calendar,
   },
  
@@ -68,7 +69,7 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>BioNTech</SidebarGroupLabel>          
-          
+          <Link className="ml-4" href="/pages">Dashboard</Link>
           <Collapsible className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>
@@ -83,10 +84,10 @@ export function AppSidebar() {
                   {patients.map((patients) => (
                     <SidebarMenuItem key={patients.title}>
                       <SidebarMenuButton asChild>
-                        <a href={patients.url}>
+                        <Link href={patients.url}>
                           <patients.icon />
                           <span>{patients.title}</span>
-                        </a>
+                        </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   ))}
@@ -111,10 +112,10 @@ export function AppSidebar() {
                   {laboratory.map((laboratory) => (
                     <SidebarMenuItem key={laboratory.title}>
                       <SidebarMenuButton asChild>
-                        <a href={laboratory.url}>
+                        <Link href={laboratory.url}>
                           <laboratory.icon />
                           <span>{laboratory.title}</span>
-                        </a>
+                        </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   ))}
@@ -139,10 +140,10 @@ export function AppSidebar() {
                   {config.map((config) => (
                     <SidebarMenuItem key={config.title}>
                       <SidebarMenuButton asChild>
-                        <a href={config.url}>
+                        <Link href={config.url}>
                           <config.icon />
                           <span>{config.title}</span>
-                        </a>
+                        </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   ))}
