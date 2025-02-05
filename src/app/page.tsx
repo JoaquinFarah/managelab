@@ -1,4 +1,5 @@
-import Image from "next/image"
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Login() {
   return (
@@ -43,12 +44,13 @@ export default function Login() {
               />
             </div>
             <div className="mt-8 flex justify-center text-lg text-black">
+              <Link href="/pages">                
               <button
-                type="submit"
+                // type="submit"
                 className="rounded-3xl bg-emerald-300 bg-opacity-50 px-10 py-2 text-yellow-300 hover:text-emerald-600 shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-300"
               >
                 Login
-              </button>
+              </button></Link>
             </div>
           </form>
         </div>
