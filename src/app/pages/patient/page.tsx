@@ -19,7 +19,7 @@ const PatientsPage = () => {
         {patients.map((patient) => (
           <Link
             key={patient.id}
-            href={`/patient/${patient.id}-${patient.slug}`}
+            href={`/pages/patient/${patient.id}`}
             className="block p-4 border border-gray-200 rounded shadow hover:shadow-lg transition-shadow"
           >
             <h2 className="text-lg font-semibold">{patient.name}</h2>

@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-
+// archivo: app/patient/[slug]/page.tsx
 const patients = [
   { id: "1", name: "Juan Pérez", age: 34, slug: "juan-perez", email: "juan.perez@example.com", analyses: [] },
   { id: "2", name: "María López", age: 29, slug: "maria-lopez", email: "maria.lopez@example.com", analyses: [] },
@@ -8,11 +7,16 @@ const patients = [
   { id: "5", name: "Pedro Sánchez", age: 50, slug: "pedro-sanchez", email: "pedro.sanchez@example.com", analyses: [] },
 ];
 
-const PatientProfile = () => {
-  const router = useRouter();
-  const { slug } = router.query; // Captura el slug desde la URL
+// Genera rutas estáticas
+export async function generateStaticParams() {
+  return patients.map((patient) => ({
+    slug: patient.slug,
+  }));
+}
 
-  const patient = patients.find((p) => p.slug === slug);
+// Componente principal de la página
+const PatientProfile = ({ params }: { params: { slug: string } }) => {
+  const patient = patients.find((p) => p.slug === params.slug);
 
   if (!patient) {
     return <p>Paciente no encontrado.</p>;
@@ -22,8 +26,12 @@ const PatientProfile = () => {
     <main className="p-4">
       <h1 className="text-2xl font-bold">Perfil de {patient.name}</h1>
       <div className="mt-4">
-        <p><strong>Edad:</strong> {patient.age}</p>
-        <p><strong>Email:</strong> {patient.email}</p>
+        <p>
+          <strong>Edad:</strong> {patient.age}
+        </p>
+        <p>
+          <strong>Email:</strong> {patient.email}
+        </p>
         <h2 className="text-xl mt-4">Historial de Análisis:</h2>
         {patient.analyses.length === 0 ? (
           <p>No hay análisis registrados.</p>
