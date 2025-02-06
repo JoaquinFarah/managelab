@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const patients = [
-  { id: "11827330", name: "Juan Pérez", age: 34, slug: "11827330", cel:"26111827330", analyses: [] },
+  { id: "11827330", name: "Juan Pérez", age: 34, slug: "11827330", cel:"26111827330", analyses: [ {id: "11827330", type: "orina", date: "12/04/2024", image: "servoescapular" } ] },
   { id: "22345675", name: "María López", age: 29, slug: "22345675", cel:"26122345675", analyses: [] },
   { id: "31334887", name: "Carlos Gómez", age: 41, slug: "31334887", cel:"26131334887", analyses: [] },
   { id: "45984275", name: "Ana Martínez", age: 36, slug: "45984275", cel:"26145984275", analyses: [] },
@@ -44,7 +44,7 @@ const PatientProfile = ({ params }: { params: { slug: string } }) => {
           <ul>
             {patient.analyses.map((analysis) => (
               <li key={analysis.id}>
-                {analysis.type} - {new Date(analysis.date).toLocaleDateString()}
+                {analysis.type} - {analysis.image} - {analysis.date}
               </li>
             ))}
           </ul>
