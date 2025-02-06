@@ -1,13 +1,11 @@
 import Link from "next/link";
 
 const patients = [
-  { id: "11111111", name: "Jorge Mendoza", age: 40, slug: "jorge-mendoza" },
-  { id: "11827330", name: "Juan Pérez", age: 34, slug: "juan-perez" },
-  { id: "22345675", name: "María López", age: 29, slug: "maria-lopez" },
-  { id: "31334887", name: "Carlos Gómez", age: 41, slug: "carlos-gomez" },
-  { id: "45984275", name: "Ana Martínez", age: 36, slug: "ana-martinez" },
-  { id: "95000543", name: "Pedro Sánchez", age: 50, slug: "pedro-sanchez" },
-  { id: "11199533", name: "Martin Garcia", age: 10, slug: "martin-garcia" },
+  { id: "11827330", name: "Juan Pérez", age: 34, slug: "11827330" },
+  { id: "22345675", name: "María López", age: 29, slug: "22345675" },
+  { id: "31334887", name: "Carlos Gómez", age: 41, slug: "31334887" },
+  { id: "45984275", name: "Ana Martínez", age: 36, slug: "45984275" },
+  { id: "95000543", name: "Pedro Sánchez", age: 50, slug: "95000543" },
 
 ];
 
@@ -19,7 +17,7 @@ const PatientsPage = () => {
         {patients.map((patient) => (
           <Link
             key={patient.id}
-            href={`/pages/patient/${patient.id}`}
+            href={`/pages/patient/${patient.slug}`}
             className="block p-4 border border-gray-200 rounded shadow hover:shadow-lg transition-shadow"
           >
             <h2 className="text-lg font-semibold">{patient.name}</h2>

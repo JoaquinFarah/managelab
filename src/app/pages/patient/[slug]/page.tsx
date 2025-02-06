@@ -1,10 +1,10 @@
 // archivo: app/patient/[slug]/page.tsx
 const patients = [
-  { id: "1", name: "Juan Pérez", age: 34, slug: "juan-perez", email: "juan.perez@example.com", analyses: [] },
-  { id: "2", name: "María López", age: 29, slug: "maria-lopez", email: "maria.lopez@example.com", analyses: [] },
-  { id: "3", name: "Carlos Gómez", age: 41, slug: "carlos-gomez", email: "carlos.gomez@example.com", analyses: [] },
-  { id: "4", name: "Ana Martínez", age: 36, slug: "ana-martinez", email: "ana.martinez@example.com", analyses: [] },
-  { id: "5", name: "Pedro Sánchez", age: 50, slug: "pedro-sanchez", email: "pedro.sanchez@example.com", analyses: [] },
+  { id: "11827330", name: "Juan Pérez", age: 34, slug: "11827330", email: "juan.perez@example.com", analyses: [] },
+  { id: "22345675", name: "María López", age: 29, slug: "22345675", email: "maria.lopez@example.com", analyses: [] },
+  { id: "31334887", name: "Carlos Gómez", age: 41, slug: "31334887", email: "carlos.gomez@example.com", analyses: [] },
+  { id: "45984275", name: "Ana Martínez", age: 36, slug: "45984275", email: "ana.martinez@example.com", analyses: [] },
+  { id: "95000543", name: "Pedro Sánchez", age: 50, slug: "95000543", email: "pedro.sanchez@example.com", analyses: [] },
 ];
 
 // Genera rutas estáticas
@@ -26,6 +26,9 @@ const PatientProfile = ({ params }: { params: { slug: string } }) => {
     <main className="p-4">
       <h1 className="text-2xl font-bold">Perfil de {patient.name}</h1>
       <div className="mt-4">
+      <p>
+          <strong>DNI:</strong> {patient.id}
+        </p>
         <p>
           <strong>Edad:</strong> {patient.age}
         </p>
