@@ -1,4 +1,6 @@
-// archivo: app/patient/[slug]/page.tsx
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
 const patients = [
   { id: "11827330", name: "Juan Pérez", age: 34, slug: "11827330", email: "juan.perez@example.com", analyses: [] },
   { id: "22345675", name: "María López", age: 29, slug: "22345675", email: "maria.lopez@example.com", analyses: [] },
@@ -48,7 +50,11 @@ const PatientProfile = ({ params }: { params: { slug: string } }) => {
           </ul>
         )}
       </div>
-    </main>
+
+      <div className="mt-4">
+        <Link href="/pages/patient"> <Button>Atrás</Button> </Link>
+      </div>
+    </main>    
   );
 };
 
