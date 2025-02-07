@@ -28,7 +28,7 @@ const PatientProfile = ({ params }: { params: { slug: string } }) => {
     <main className="p-4">
       <h1 className="text-2xl font-bold">Perfil de {patient.name}</h1>
       <div className="mt-4">
-      <p>
+        <p>
           <strong>DNI:</strong> {patient.id}
         </p>
         <p>
