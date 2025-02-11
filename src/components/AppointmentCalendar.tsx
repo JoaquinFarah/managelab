@@ -24,21 +24,6 @@ const AppointmentCalendar: React.FC = () => {
   const [specialists, setSpecialists] = useState<Specialist[]>([]); // Datos de la API
   const [selectedAppointment, setSelectedAppointment] = useState<Appointment | null>(null);
 
-  // Función para obtener los turnos desde la API (simulada)
-  const fetchAppointments = async (date: Date) => {
-    // Reemplaza esto con tu llamada a la API
-    const response = await fetch(`/api/appointments?date=${date.toISOString()}`);
-    const data = await response.json();
-    setAppointments(data);
-  };
-
-  // Función para obtener los especialistas desde la API (simulada)
-  const fetchSpecialists = async () => {
-    // Reemplaza esto con tu llamada a la API
-    const response = await fetch('/api/specialists');
-    const data = await response.json();
-    setSpecialists(data);
-  };
 
   // Efecto para cargar los turnos al cambiar la fecha
   React.useEffect(() => {
@@ -54,6 +39,22 @@ const AppointmentCalendar: React.FC = () => {
   const handleAppointmentClick = (appointment: Appointment) => {
     setSelectedAppointment(appointment);
   };
+
+  // Función para obtener los turnos desde la API
+const fetchAppointments = async (date: Date) => {
+    const formattedDate = date.toISOString().slice(0, 10); // Formato YYYY-MM-DD
+    const response = await fetch(`/api/appointments?date=${formattedDate}`);
+    const data = await response.json();
+    setAppointments(data);
+  };
+  
+  // Función para obtener los especialistas desde la API
+  const fetchSpecialists = async () => {
+    const response = await fetch('/api/specialists');
+    const data = await response.json();
+    setSpecialists(data);
+  };
+  
 
   return (
     <div className="p-4">
