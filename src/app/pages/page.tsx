@@ -1,3 +1,5 @@
+"use client"
+import AppointmentCalendar from '@/components/AppointmentCalendar';
 import { Pyramid, Lock, Fingerprint, RefreshCcw } from 'lucide-react';
 
 const features = [
@@ -56,6 +58,8 @@ export default function Example() {
           </dl>
         </div>
       </div>
+      <h1>Agenda de turnos</h1>
+      <AppointmentCalendar />
     </div>
   )
 }
