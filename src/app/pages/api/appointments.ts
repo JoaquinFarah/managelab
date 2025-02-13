@@ -1,5 +1,7 @@
 // pages/api/appointments.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { supabase } from '@/utils/supabaseClient';
+
 
 // Datos de ejemplo (reemplaza con tu base de datos)
 const appointments = [
